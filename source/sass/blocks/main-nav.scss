@@ -14,7 +14,11 @@
   }
 
   &__link {
-    color: $color-default-white;
+    font-size: 20px;
+    line-height: 90px;
+    color: $color-black-1;
+
+    font-weight: 600;
 
     &.is-active {
       opacity: 0.6;
@@ -23,5 +27,17 @@
 
   &__toggle {
     display: none;
+  }
+
+  &__top-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1400px;
+
+    background-color: $color-default-white;
   }
 }

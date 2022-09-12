@@ -2,30 +2,43 @@ mixin header(headerMods, currentUrl)
   -
     const headerLinks = [
       {
-        href: "index.html",
-        text: "Главная"
+        href: "#",
+        text: "Цены",
       },
       {
         href: "#",
-        text: "Страница 2"
+        text: "О нас",
       },
       {
         href: "#",
-        text: "Страница 3"
+        text: "Преимущества",
+      },
+      {
+        href: "#",
+        text: "Услуги",
+      },
+      {
+        href: "#",
+        text: "Контакты",
       },
     ]
 
-  header.header(class=headerMods)
+  header.header(class=headerMods, data-burger="header")
     .container
-      if(currentUrl === "index.html")
-        //- lighthouse снимает 10 баллов SEO за <a> без href
-        span.header__logo Логотип
-      else
-        a.header__logo(href="index.html", aria-label="Переход на главную") Логотип
-      nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
-        .main-nav__wrapper
+      .header__top-wrapper
+        .header__fix-block
+          button.header__menu-toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false", data-burger="toggle", data-burger-desktop="toggle")
+            span
+            span
+            span
+          if(currentUrl === "index.html")
+            //- lighthouse снимает 10 баллов SEO за <a> без href
+            span.header__logo
+              img(src="./img/logo/logo.png", width="154", height="50", alt="Логотип организации")
+          else
+            a.header__logo(href="index.html", aria-label="Переход на главную")
+              img(src="./img/logo/logo.png", width="154", height="50", alt="Логотип организации")
+        nav.main-nav
           ul.main-nav__list
             each link in headerLinks
               - const activeState = currentUrl === link.href
@@ -34,3 +47,5 @@ mixin header(headerMods, currentUrl)
                   span.main-nav__link.is-active=link.text
                 else
                   a.main-nav__link(href=link.href)=link.text
+        .header__contact
+          a.header__contact-link(href="tel: +79385577870") 8 (938) 557-78-70

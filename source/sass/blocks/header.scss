@@ -1,13 +1,159 @@
 .header {
-  padding: 28px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
 
-  background-color: $color-neon-blue;
+  display: flex;
+  flex-direction: column;
 
-  .container {
+  padding: 0;
+  min-height: 70px;
+
+  background-color: $color-grey;
+  transition: background-color $trans-default, min-height $trans-default;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 145px;
+    width: 100%;
+    height: 1px;
+    background-color: $color-grey;
+
+    @include vp-1023 {
+      z-index: 4;
+    }
+
+    @include vp-767 {
+      top: 71px;
+    }
+  }
+
+
+  @include vp-767 {
+    min-height: 72px;
+  }
+
+  &__top-wrapper {
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
   }
 
   &__logo {
-    color: $color-default-white;
+    margin-right: auto;
+
+    @include vp-1023 {
+      margin-left: auto;
+    }
+
+    img {
+      width: 154px;
+      height: 121px;
+    }
+  }
+}
+
+.header__menu-toggle {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 80px;
+  height: 70px;
+  margin-right: 35px;
+
+  // background-color: $color-default-white;
+  border: none;
+  display: none;
+  cursor: pointer;
+
+  @media (hover: hover), screen and (min-width: 0\0) {
+    &:hover,
+    &:focus {
+      span {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &.no-pointer {
+    pointer-events: none;
+    cursor: defaults;
+  }
+
+  @include vp-767 {
+    height: 72px;
+    width: 66px;
+  }
+}
+
+.header__menu-toggle span {
+  width: 30px;
+  height: 3px;
+
+  @include vp-767 {
+    width: 27px;
+  }
+
+  transition: transform $trans-default, opacity $trans-default;
+  background-color: $color-default-black;
+}
+
+.header__menu-toggle span:first-child {
+  margin-bottom: 6px;
+
+  @include vp-767 {
+    margin-bottom: 4px;
+  }
+}
+
+.header__menu-toggle span:last-child {
+  margin-top: 6px;
+
+  @include vp-767 {
+    margin-top: 4px;
+  }
+}
+
+.header__menu-toggle[aria-pressed="false"] {
+  z-index: 0;
+}
+
+.header__menu-toggle[aria-pressed="true"] {
+  background-color: $color-default-black;
+}
+.header__menu-toggle[aria-pressed="true"] {
+  background-color: $color-default-black;
+}
+
+.header__menu-toggle[aria-pressed=true] span:first-child {
+  transform: translateY(9px) rotate(45deg);
+
+  @include vp-767 {
+    transform: translateY(7px) rotate(45deg);
+  }
+}
+
+.header__menu-toggle[aria-pressed=true] span:nth-child(2) {
+  opacity: 0;
+}
+
+.header__menu-toggle[aria-pressed=true] span:last-child {
+  transform: translateY(-9px) rotate(-45deg);
+
+  @include vp-767 {
+    transform: translateY(-7px) rotate(-45deg);
   }
 }
