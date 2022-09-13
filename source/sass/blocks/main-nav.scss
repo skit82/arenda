@@ -28,16 +28,4 @@
   &__toggle {
     display: none;
   }
-
-  &__top-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1400px;
-
-    background-color: $color-default-white;
-  }
 }

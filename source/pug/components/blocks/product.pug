@@ -1,0 +1,60 @@
+mixin product()
+  -
+    const featuresList = [
+      {
+        icon: 'icon-deal',
+        iconWidth: 75,
+        iconHeight: 75,
+      },
+      {
+        icon: 'icon-fast',
+        iconWidth: 75,
+        iconHeight: 75,
+      },
+      {
+        icon: 'icon-settings',
+        iconWidth: 65,
+        iconHeight: 65,
+      },
+      {
+        icon: 'icon-teach',
+        iconWidth: 65,
+        iconHeight: 65,
+      },
+      {
+        icon: 'icon-repairttools',
+        iconWidth: 75,
+        iconHeight: 75,
+      },
+      {
+        icon: 'icon-warehouse',
+        iconWidth: 75,
+        iconHeight: 75,
+      },
+    ]
+
+  section.product&attributes(attributes)
+    .container
+      .product__title
+        h2 Цены на аренду штукатурных машин
+      ul.product__list
+        li.product__item
+          .product__description
+
+            p Serta Master XL
+            span От 2000 руб/сутки, (без НДС)
+        li.product__item
+          .product__description
+            p Serta Master Volt
+            span От 2000 руб/сутки, (без НДС)
+      .features
+        h2.visually-hidden Этаппы аренды
+          .container
+            .features__wrapper
+              ul.features__list
+                each item in featuresList
+                  li.features__item
+                    .features__icon
+                      +icon(item.icon, item.iconWidth, item.iconHeight)
+
+
