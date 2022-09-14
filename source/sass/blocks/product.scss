@@ -1,0 +1,43 @@
+.product {
+
+  &__title {
+    h2 {
+      font-size: 42px;
+      line-height: 46px;
+      font-weight: 700;
+
+      text-align: center;
+
+      margin: 0;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 100px;
+  }
+
+  &__item {
+    border: 1px solid $color-grey;
+    border-radius: 10px;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 280px;
+      height: 340px;
+      padding: 15px;
+    }
+  }
+}

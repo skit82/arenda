@@ -5,31 +5,49 @@ mixin product()
         icon: 'icon-deal',
         iconWidth: 75,
         iconHeight: 75,
+        number: '1',
+        text: 'Пункт передачи',
+        name: 'штукатурной станции - сервисная мастерская',
       },
       {
         icon: 'icon-fast',
         iconWidth: 75,
         iconHeight: 75,
+        number: '2',
+        text: 'Доставка',
+        name: 'штукатурной станции на объект',
       },
       {
         icon: 'icon-settings',
-        iconWidth: 65,
-        iconHeight: 65,
+        iconWidth: 75,
+        iconHeight: 75,
+        number: '3',
+        text: 'Запуск и наладка',
+        name: 'механизированной штукатурной станции на объекте',
       },
       {
         icon: 'icon-teach',
-        iconWidth: 65,
-        iconHeight: 65,
-      },
-      {
-        icon: 'icon-repairttools',
         iconWidth: 75,
         iconHeight: 75,
+        number: '4',
+        text: 'Мастер-класс',
+        name: 'по обучению работе на штукатурной станции',
+      },
+      {
+        icon: 'icon-repairtools',
+        iconWidth: 75,
+        iconHeight: 75,
+        number: '5',
+        text: 'Сервис-центр',
+        name: 'собственная сервисная мастерская по ремонту штукатурных станций',
       },
       {
         icon: 'icon-warehouse',
         iconWidth: 75,
         iconHeight: 75,
+        number: '6',
+        text: 'Склад',
+        name: 'расходных запчастей',
       },
     ]
 
@@ -40,21 +58,24 @@ mixin product()
       ul.product__list
         li.product__item
           .product__description
-
-            p Serta Master XL
+            +img("content", "volt", "png", 686, 755, "Фото машины")
+            p Serta Master Volt
             span От 2000 руб/сутки, (без НДС)
         li.product__item
           .product__description
-            p Serta Master Volt
+            +img("content", "xl", "png", 717, 967, "Фото машины")
+            p Serta Master XL
             span От 2000 руб/сутки, (без НДС)
       .features
         h2.visually-hidden Этаппы аренды
-          .container
-            .features__wrapper
-              ul.features__list
-                each item in featuresList
-                  li.features__item
-                    .features__icon
-                      +icon(item.icon, item.iconWidth, item.iconHeight)
+        .features__wrapper
+          ul.features__list
+            each item in featuresList
+              li.features__item
+                .features__icon
+                  +icon(item.icon, item.iconWidth, item.iconHeight)
+                .features__content
+                  h3 !{item.text}
+                  p !{item.name}
 
 
