@@ -1,0 +1,38 @@
+mixin question()
+  -
+    const accordionBaccalau = [
+      {
+        title: "Есть ли у вас доставка?",
+        icon: "icon-arrow",
+        text: "Да, доставка есть до объекта, в комплектациях: лайт и фаворит доставка осуществляется за наш счет.",
+      },
+      {
+        title: "Продаем ли мы штукатурную станцию?",
+        icon: "icon-arrow",
+        text: "Наша компания занимается  арендой штукатурных станций, но если вы хотите ее приобрести наши специалисты проконсультируют Вас и помогут сделать лучший выбор в приобретении оборудования.",
+      },
+      {
+        title: "Насколько механизированная штукатурка выгоднее чем ручная?",
+        icon: "icon-arrow",
+        text: "Механизированый способ оштукатуривания в 3 раза быстрее ручного. Этот способ не только ускоряет рабочий процесс, но и в разы его упрощает.",
+      },
+    ]
+
+  section.question&attributes(attributes)
+    .container
+      .question__wrapper
+        .question__title
+            h2 Часто задаваемые вопросы
+        .question__description
+          .accordion-list
+            .accordion(data-accordion="parent", data-single)
+              each item in accordionBaccalau
+                .accordion__element(data-accordion="element")
+                  button.accordion__button(type="button", data-accordion="button")
+                    span=item.title
+                    span.accordion__icon
+                      +icon(item.icon, 8, 15)
+                  .accordion__content(data-accordion="content")
+                    .accordion__wrapper
+                      p !{item.text}
+

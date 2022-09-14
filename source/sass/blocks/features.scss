@@ -45,9 +45,28 @@
   }
 
   &__icon {
+    padding: 10px;
+    padding-top: 5px;
+
     svg {
-      fill: #ff0000;
-      color: #ff0000;
+      fill: $dark-green;
+      color: $dark-green;
+      transition:         transform .7s ease-in-out;
+
+
+      &:hover {
+        cursor: default;
+        transform: rotate(360deg);
+      }
     }
+  }
+
+  &__number {
+    display: inline-block;
+    border: 2px solid $dark-green;
+    padding: 0 7px;
+    border-radius: 100%;
+    color: $dark-green;
+    font-weight: 700;
   }
 }

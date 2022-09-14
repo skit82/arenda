@@ -72,6 +72,7 @@ mixin product()
           ul.features__list
             each item in featuresList
               li.features__item
+                span.features__number !{item.number}
                 .features__icon
                   +icon(item.icon, item.iconWidth, item.iconHeight)
                 .features__content
